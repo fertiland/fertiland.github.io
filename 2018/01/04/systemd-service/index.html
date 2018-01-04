@@ -7,16 +7,16 @@
   
   <title>systemd service - How to monitor file change | Tech</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Watch all the files under pathsrv.service12345678910111213[Unit]Description=srv 0.1 Service descriptionAfter=network.target[Service]Type=simpleWorkingDirectory=/opt/srvExecStart=/opt/srv/bin/srvUser=r">
+  <meta name="description" content="systemd.path — Path unit configurationsystemd.path Watch all the files under pathsrv.service12345678910111213[Unit]Description=srv 0.1 Service descriptionAfter=network.target[Service]Type=simpleWorkin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="systemd service - How to monitor file change">
 <meta property="og:url" content="http://fertiland.github.io/2018/01/04/systemd-service/index.html">
 <meta property="og:site_name" content="Tech">
-<meta property="og:description" content="Watch all the files under pathsrv.service12345678910111213[Unit]Description=srv 0.1 Service descriptionAfter=network.target[Service]Type=simpleWorkingDirectory=/opt/srvExecStart=/opt/srv/bin/srvUser=r">
-<meta property="og:updated_time" content="2018-01-04T10:02:13.561Z">
+<meta property="og:description" content="systemd.path — Path unit configurationsystemd.path Watch all the files under pathsrv.service12345678910111213[Unit]Description=srv 0.1 Service descriptionAfter=network.target[Service]Type=simpleWorkin">
+<meta property="og:updated_time" content="2018-01-04T10:26:56.735Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="systemd service - How to monitor file change">
-<meta name="twitter:description" content="Watch all the files under pathsrv.service12345678910111213[Unit]Description=srv 0.1 Service descriptionAfter=network.target[Service]Type=simpleWorkingDirectory=/opt/srvExecStart=/opt/srv/bin/srvUser=r">
+<meta name="twitter:description" content="systemd.path — Path unit configurationsystemd.path Watch all the files under pathsrv.service12345678910111213[Unit]Description=srv 0.1 Service descriptionAfter=network.target[Service]Type=simpleWorkin">
   
     <link rel="alternate" href="/atom.xml" title="Tech" type="application/atom+xml">
   
@@ -66,7 +66,7 @@
         <section id="main"><article id="post-systemd-service" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/01/04/systemd-service/" class="article-date">
-  <time datetime="2018-01-04T10:04:22.877Z" itemprop="datePublished">2018-01-04</time>
+  <time datetime="2018-01-04T10:26:56.763Z" itemprop="datePublished">2018-01-04</time>
 </a>
     
   </div>
@@ -85,14 +85,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Watch-all-the-files-under-path"><a href="#Watch-all-the-files-under-path" class="headerlink" title="Watch all the files under path"></a>Watch all the files under path</h2><h3 id="srv-service"><a href="#srv-service" class="headerlink" title="srv.service"></a>srv.service</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=srv 0.1 Service description</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/opt/srv</span><br><span class="line">ExecStart=/opt/srv/bin/srv</span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+        <h2 id="systemd-path-—-Path-unit-configuration"><a href="#systemd-path-—-Path-unit-configuration" class="headerlink" title="systemd.path — Path unit configuration"></a>systemd.path — Path unit configuration</h2><p><a href="https://freedesktop.org/software/systemd/man/systemd.path.html" target="_blank" rel="noopener">systemd.path</a></p>
+<h2 id="Watch-all-the-files-under-path"><a href="#Watch-all-the-files-under-path" class="headerlink" title="Watch all the files under path"></a>Watch all the files under path</h2><h3 id="srv-service"><a href="#srv-service" class="headerlink" title="srv.service"></a>srv.service</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=srv 0.1 Service description</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/opt/srv</span><br><span class="line">ExecStart=/opt/srv/bin/srv</span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
 <h3 id="srv-watcher-service"><a href="#srv-watcher-service" class="headerlink" title="srv-watcher.service"></a>srv-watcher.service</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=srv restarter</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=oneshot</span><br><span class="line">ExecStart=/usr/bin/systemctl restart srv.service</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-<h3 id="srv-watcher-path"><a href="#srv-watcher-path" class="headerlink" title="srv-watcher.path"></a>srv-watcher.path</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[Path]</span><br><span class="line">PathModified=/opt/srv/lib</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<h3 id="srv-watcher-path"><a href="#srv-watcher-path" class="headerlink" title="srv-watcher.path"></a>srv-watcher.path</h3><p>PathModified can be file or path. If it is path, then all the files contained will be watched.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[Path]</span><br><span class="line">PathModified=/opt/srv/lib</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fertiland.github.io/2018/01/04/systemd-service/" data-id="cjc0bv9u400013zp5od82neun" class="article-share-link">Teilen</a>
+      <a data-url="http://fertiland.github.io/2018/01/04/systemd-service/" data-id="cjc0ccvvx0001xrp5djmgahca" class="article-share-link">Teilen</a>
       
       
     </footer>
