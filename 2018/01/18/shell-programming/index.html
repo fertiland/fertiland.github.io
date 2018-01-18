@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>shell-programming | Tech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Map and Array``` bash #!/bin/sh function preUpdateNode_xxx_1_000_to_xxx_1_100(){   nodeType=$1   if [ “$nodeType” = “node” ] ; then       echo “preUpdate node “   else       echo “wrong node type”   f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell-programming">
+<meta property="og:url" content="http://fertiland.github.io/2018/01/18/shell-programming/index.html">
+<meta property="og:site_name" content="Tech">
+<meta property="og:description" content="Map and Array``` bash #!/bin/sh function preUpdateNode_xxx_1_000_to_xxx_1_100(){   nodeType=$1   if [ “$nodeType” = “node” ] ; then       echo “preUpdate node “   else       echo “wrong node type”   f">
+<meta property="og:updated_time" content="2018-01-18T10:43:45.513Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="shell-programming">
+<meta name="twitter:description" content="Map and Array``` bash #!/bin/sh function preUpdateNode_xxx_1_000_to_xxx_1_100(){   nodeType=$1   if [ “$nodeType” = “node” ] ; then       echo “preUpdate node “   else       echo “wrong node type”   f">
+  
+    <link rel="alternate" href="/atom.xml" title="Tech" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Tech</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://fertiland.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-shell-programming" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/18/shell-programming/" class="article-date">
+  <time datetime="2018-01-18T10:40:21.000Z" itemprop="datePublished">2018-01-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      shell-programming
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Map-and-Array"><a href="#Map-and-Array" class="headerlink" title="Map and Array"></a>Map and Array</h2><p>``` bash</p>
+<p>#!/bin/sh</p>
+<p>function preUpdateNode_xxx_1_000_to_xxx_1_100()<br>{<br>   nodeType=$1<br>   if [ “$nodeType” = “node” ] ; then<br>       echo “preUpdate node “<br>   else<br>       echo “wrong node type”<br>   fi<br>}</p>
+<p>function postUpdateNode_xxx_1_100_to_xxx_1_200()<br>{<br>   nodeType=$1<br>   if [ “$nodeType” = “node” ] ; then<br>       echo “postUpdate node “<br>   else<br>       echo “wrong node type”<br>   fi<br>}</p>
+<p>function dummy()<br>{<br>   echo “dummy functions”<br>}</p>
+<p>function preUpdate()<br>{<br>    local nodeType=$1<br>    while [[ ! “$nextVer” = “$endVer” ]]<br>    do<br>       case $nodeType in<br>       “node”)<br>           for key in ${!preUpdateNodeActions[@]}<br>           do<br>              if [[ “$key” = $nextVer* ]] ; then<br>                  nextVer=$(echo $key|cut -d”,” -f2)<br>                  echo $nextVer<br>                  eval ${preUpdateNodeActions[$key]} $nodeType<br>                  break<br>              fi<br>           done<br>           ;;<br>       esac</p>
+<pre><code>   sleep 1
+done
+</code></pre><p>}</p>
+<p>function postUpdate()<br>{<br>    local nodeType=$1</p>
+<pre><code>while [[ ! &quot;$nextVer&quot; = &quot;$endVer&quot; ]]
+do
+   case $nodeType in
+   &quot;node&quot;)
+       for key in ${!postUpdateNodeActions[@]}
+       do
+          if [[ &quot;$key&quot; = $nextVer* ]] ; then
+              nextVer=$(echo $key|cut -d&quot;,&quot; -f2)
+              echo $nextVer
+              eval ${postUpdateNodeActions[$key]} $nodeType
+              break
+          fi
+       done
+       ;;
+   esac
+
+   sleep 1
+done
+</code></pre><p>}</p>
+<p>function updatePackage()<br>{<br>    echo “update”<br>}</p>
+<p>function preCheck()<br>{<br>    echo “preCheck”<br>}</p>
+<h1 id="Main-Flow"><a href="#Main-Flow" class="headerlink" title="Main Flow"></a>Main Flow</h1><p>declare -A preUpdateNodeActions=([“xxx.1.000,xxx.1.100”]=preUpdateNode_xxx_1_000_to_xxx_1_100<br>                                [“xxx.1.100,xxx.1.200”]=dummy<br>                                [“xxx.1.200,xxx.1.300”]=dummy)</p>
+<p>declare -A postUpdateNodeActions=([“xxx.1.000,xxx.1.100”]=dummy<br>                                 [“xxx.1.100,xxx.1.200”]=postUpdateNode_xxx_1_100_to_xxx_1_200<br>                                 [“xxx.1.200,xxx.1.300”]=dummy)</p>
+<p>startVer=”xxx.1.000”<br>nextVer=$startVer<br>endVer=”xxx.1.300”<br>nodeType=”node”</p>
+<p>preCheck<br>preUpdate $nodeType<br>updatePackage<br>postUpdate $nodeType</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fertiland.github.io/2018/01/18/shell-programming/" data-id="cjckdd0uw0002hnp5fm0yuy5r" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/06/programmer-draw-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/18/shell-programming/">shell-programming</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/06/programmer-draw-1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/04/systemd-service/">systemd service - How to monitor file change</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/27/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Fertiland Lee<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

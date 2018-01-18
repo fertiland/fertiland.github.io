@@ -61,6 +61,77 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-shell-programming" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/18/shell-programming/" class="article-date">
+  <time datetime="2018-01-18T10:40:21.000Z" itemprop="datePublished">2018-01-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/18/shell-programming/">shell-programming</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Map-and-Array"><a href="#Map-and-Array" class="headerlink" title="Map and Array"></a>Map and Array</h2><p>``` bash</p>
+<p>#!/bin/sh</p>
+<p>function preUpdateNode_xxx_1_000_to_xxx_1_100()<br>{<br>   nodeType=$1<br>   if [ “$nodeType” = “node” ] ; then<br>       echo “preUpdate node “<br>   else<br>       echo “wrong node type”<br>   fi<br>}</p>
+<p>function postUpdateNode_xxx_1_100_to_xxx_1_200()<br>{<br>   nodeType=$1<br>   if [ “$nodeType” = “node” ] ; then<br>       echo “postUpdate node “<br>   else<br>       echo “wrong node type”<br>   fi<br>}</p>
+<p>function dummy()<br>{<br>   echo “dummy functions”<br>}</p>
+<p>function preUpdate()<br>{<br>    local nodeType=$1<br>    while [[ ! “$nextVer” = “$endVer” ]]<br>    do<br>       case $nodeType in<br>       “node”)<br>           for key in ${!preUpdateNodeActions[@]}<br>           do<br>              if [[ “$key” = $nextVer* ]] ; then<br>                  nextVer=$(echo $key|cut -d”,” -f2)<br>                  echo $nextVer<br>                  eval ${preUpdateNodeActions[$key]} $nodeType<br>                  break<br>              fi<br>           done<br>           ;;<br>       esac</p>
+<pre><code>   sleep 1
+done
+</code></pre><p>}</p>
+<p>function postUpdate()<br>{<br>    local nodeType=$1</p>
+<pre><code>while [[ ! &quot;$nextVer&quot; = &quot;$endVer&quot; ]]
+do
+   case $nodeType in
+   &quot;node&quot;)
+       for key in ${!postUpdateNodeActions[@]}
+       do
+          if [[ &quot;$key&quot; = $nextVer* ]] ; then
+              nextVer=$(echo $key|cut -d&quot;,&quot; -f2)
+              echo $nextVer
+              eval ${postUpdateNodeActions[$key]} $nodeType
+              break
+          fi
+       done
+       ;;
+   esac
+
+   sleep 1
+done
+</code></pre><p>}</p>
+<p>function updatePackage()<br>{<br>    echo “update”<br>}</p>
+<p>function preCheck()<br>{<br>    echo “preCheck”<br>}</p>
+<h1 id="Main-Flow"><a href="#Main-Flow" class="headerlink" title="Main Flow"></a>Main Flow</h1><p>declare -A preUpdateNodeActions=([“xxx.1.000,xxx.1.100”]=preUpdateNode_xxx_1_000_to_xxx_1_100<br>                                [“xxx.1.100,xxx.1.200”]=dummy<br>                                [“xxx.1.200,xxx.1.300”]=dummy)</p>
+<p>declare -A postUpdateNodeActions=([“xxx.1.000,xxx.1.100”]=dummy<br>                                 [“xxx.1.100,xxx.1.200”]=postUpdateNode_xxx_1_100_to_xxx_1_200<br>                                 [“xxx.1.200,xxx.1.300”]=dummy)</p>
+<p>startVer=”xxx.1.000”<br>nextVer=$startVer<br>endVer=”xxx.1.300”<br>nodeType=”node”</p>
+<p>preCheck<br>preUpdate $nodeType<br>updatePackage<br>postUpdate $nodeType</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fertiland.github.io/2018/01/18/shell-programming/" data-id="cjckdd0uw0002hnp5fm0yuy5r" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-programmer-draw-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/01/06/programmer-draw-1/" class="article-date">
@@ -78,7 +149,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fertiland.github.io/2018/01/06/programmer-draw-1/" data-id="cjc32tkzr0001d0p5k228qdo6" class="article-share-link">Teilen</a>
+      <a data-url="http://fertiland.github.io/2018/01/06/programmer-draw-1/" data-id="cjckdd0uq0001hnp51q2xiukv" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -118,7 +189,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fertiland.github.io/2018/01/04/systemd-service/" data-id="cjc32tl0a0002d0p53suh5qju" class="article-share-link">Teilen</a>
+      <a data-url="http://fertiland.github.io/2018/01/04/systemd-service/" data-id="cjckdd0w10003hnp55c67bqd1" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -163,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fertiland.github.io/2017/12/27/hello-world/" data-id="cjc32tkzh0000d0p5jhvfhx0o" class="article-share-link">Teilen</a>
+      <a data-url="http://fertiland.github.io/2017/12/27/hello-world/" data-id="cjckdd0uh0000hnp5aw3zt5ii" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -202,6 +273,10 @@
     <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/01/18/shell-programming/">shell-programming</a>
+          </li>
         
           <li>
             <a href="/2018/01/06/programmer-draw-1/">(no title)</a>
