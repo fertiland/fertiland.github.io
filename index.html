@@ -83,8 +83,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Variable-Scope"><a href="#Variable-Scope" class="headerlink" title="Variable Scope"></a>Variable Scope</h2><p>The variable in the shell programming is not required to declare explicitly, which<br>means using any variable in any place is allowed. It is easy to access the value by $vairable<br>The variale scope is global by default. Only in the function, the local variable can be declared</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">variableA=<span class="string">"Hello World"</span></span><br><span class="line">variableB=<span class="string">"Fertiland"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$variableA</span>, <span class="variable">$variableB</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="built_in">test</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">local</span> variableA=<span class="string">"Bye Bye"</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"<span class="variable">$variableA</span>, <span class="variable">$variableB</span>"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="Variable-Scope"><a href="#Variable-Scope" class="headerlink" title="Variable Scope"></a>Variable Scope</h2><p>The variable in the shell programming is not required to declare explicitly, which<br>means using any variable in any place is allowed. It is easy to access the value by $vairable<br>The variable scope is global by default. Only in the function, the local variable can be declared.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">variableA=<span class="string">"Hello World"</span></span><br><span class="line">variableB=<span class="string">"Fertiland"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="built_in">test</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">local</span> variableA=<span class="string">"Bye Bye"</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"<span class="variable">$variableA</span>, <span class="variable">$variableB</span>"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$variableA</span>, <span class="variable">$variableB</span>"</span></span><br><span class="line"><span class="built_in">test</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$variableA</span>, <span class="variable">$variableB</span>"</span></span><br></pre></td></tr></table></figure>
 <h2 id="Variable-Reference"><a href="#Variable-Reference" class="headerlink" title="Variable Reference"></a>Variable Reference</h2><h2 id="Map-and-Array"><a href="#Map-and-Array" class="headerlink" title="Map and Array"></a>Map and Array</h2><h3 id="Get-Keys"><a href="#Get-Keys" class="headerlink" title="Get Keys"></a>Get Keys</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">declare</span> -A map=([<span class="string">"1"</span>]=<span class="string">"a"</span> [<span class="string">"2"</span>]=<span class="string">"b"</span> [<span class="string">"3"</span>]=<span class="string">"c"</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;!map[@]&#125;</span></span><br></pre></td></tr></table></figure>
 <h3 id="Get-Values"><a href="#Get-Values" class="headerlink" title="Get Values"></a>Get Values</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">declare</span> -A map=([<span class="string">"1"</span>]=<span class="string">"a"</span> [<span class="string">"2"</span>]=<span class="string">"b"</span> [<span class="string">"3"</span>]=<span class="string">"c"</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;map[@]&#125;</span></span><br></pre></td></tr></table></figure>
 <h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>update or rollback wrapper scripts</p>
@@ -93,7 +93,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fertiland.github.io/2018/01/18/shell-programming/" data-id="cjcm5tjt600001ep5ys3u0xad" class="article-share-link">Teilen</a>
+      <a data-url="http://fertiland.github.io/2018/01/18/shell-programming/" data-id="cjcm5z6q30002cfp5z7os80xh" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -120,7 +120,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fertiland.github.io/2018/01/06/programmer-draw-1/" data-id="cjcm5tjtm00011ep56uauqfrh" class="article-share-link">Teilen</a>
+      <a data-url="http://fertiland.github.io/2018/01/06/programmer-draw-1/" data-id="cjcm5z6py0001cfp5s7kr9sqg" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -160,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fertiland.github.io/2018/01/04/systemd-service/" data-id="cjcm5tjv200031ep5f0a624fo" class="article-share-link">Teilen</a>
+      <a data-url="http://fertiland.github.io/2018/01/04/systemd-service/" data-id="cjcm5z6q80003cfp5gauyi78v" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -205,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fertiland.github.io/2017/12/27/hello-world/" data-id="cjcm5tjub00021ep51nvtpnyi" class="article-share-link">Teilen</a>
+      <a data-url="http://fertiland.github.io/2017/12/27/hello-world/" data-id="cjcm5z6pe0000cfp5ol43u23x" class="article-share-link">Teilen</a>
       
       
     </footer>
