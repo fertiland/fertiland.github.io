@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://fertiland.github.io"></form>
@@ -83,7 +83,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Variable-Scope"><a href="#Variable-Scope" class="headerlink" title="Variable Scope"></a>Variable Scope</h2><p>The variable in the shell programming is not required to declare explicitly, which<br>means using any variable in any place is allowed.<br>It is easy to access the value by $vairable<br>The variale scope is global by default.<br>Only in the function, the local variable can be declared<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">variableA=<span class="string">"Hello World"</span></span><br><span class="line">variableB=<span class="string">"Fertiland"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$variableA</span>, <span class="variable">$variableB</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="built_in">test</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">local</span> variableA=<span class="string">"Bye Bye"</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"<span class="variable">$variableA</span>, <span class="variable">$variableB</span>"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h2 id="Variable-Scope"><a href="#Variable-Scope" class="headerlink" title="Variable Scope"></a>Variable Scope</h2><p>The variable in the shell programming is not required to declare explicitly, which<br>means using any variable in any place is allowed. It is easy to access the value by $vairable<br>The variale scope is global by default. Only in the function, the local variable can be declared</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">variableA=<span class="string">"Hello World"</span></span><br><span class="line">variableB=<span class="string">"Fertiland"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$variableA</span>, <span class="variable">$variableB</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="built_in">test</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">local</span> variableA=<span class="string">"Bye Bye"</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"<span class="variable">$variableA</span>, <span class="variable">$variableB</span>"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Variable-Reference"><a href="#Variable-Reference" class="headerlink" title="Variable Reference"></a>Variable Reference</h2><h2 id="Map-and-Array"><a href="#Map-and-Array" class="headerlink" title="Map and Array"></a>Map and Array</h2><h3 id="Get-Keys"><a href="#Get-Keys" class="headerlink" title="Get Keys"></a>Get Keys</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">declare</span> -A map=([<span class="string">"1"</span>]=<span class="string">"a"</span> [<span class="string">"2"</span>]=<span class="string">"b"</span> [<span class="string">"3"</span>]=<span class="string">"c"</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;!map[@]&#125;</span></span><br></pre></td></tr></table></figure>
 <h3 id="Get-Values"><a href="#Get-Values" class="headerlink" title="Get Values"></a>Get Values</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">declare</span> -A map=([<span class="string">"1"</span>]=<span class="string">"a"</span> [<span class="string">"2"</span>]=<span class="string">"b"</span> [<span class="string">"3"</span>]=<span class="string">"c"</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;map[@]&#125;</span></span><br></pre></td></tr></table></figure>
 <h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>update or rollback wrapper scripts</p>
@@ -92,7 +93,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fertiland.github.io/2018/01/18/shell-programming/" data-id="cjckeoob70002jvp5v3wr48ro" class="article-share-link">Compartir</a>
+      <a data-url="http://fertiland.github.io/2018/01/18/shell-programming/" data-id="cjcm5tjt600001ep5ys3u0xad" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -119,7 +120,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fertiland.github.io/2018/01/06/programmer-draw-1/" data-id="cjckeoob20001jvp5pt2bf3tq" class="article-share-link">Compartir</a>
+      <a data-url="http://fertiland.github.io/2018/01/06/programmer-draw-1/" data-id="cjcm5tjtm00011ep56uauqfrh" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -159,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fertiland.github.io/2018/01/04/systemd-service/" data-id="cjckeooba0003jvp5a94p3tfi" class="article-share-link">Compartir</a>
+      <a data-url="http://fertiland.github.io/2018/01/04/systemd-service/" data-id="cjcm5tjv200031ep5f0a624fo" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -204,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fertiland.github.io/2017/12/27/hello-world/" data-id="cjckeooat0000jvp54lec73cc" class="article-share-link">Compartir</a>
+      <a data-url="http://fertiland.github.io/2017/12/27/hello-world/" data-id="cjcm5tjub00021ep51nvtpnyi" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -230,7 +231,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archivos</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -240,7 +241,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Posts recientes</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
@@ -273,7 +274,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 Fertiland Lee<br>
-      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
