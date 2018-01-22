@@ -94,7 +94,7 @@ run:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fertiland.github.io/2018/01/22/getaddrinfo/" data-id="cjcpp731l00000rp5tkg7n74z" class="article-share-link">Teilen</a>
+      <a data-url="http://fertiland.github.io/2018/01/22/getaddrinfo/" data-id="cjcpwr9ac00008ip5rutagflh" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -126,7 +126,8 @@ run:
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Variable-Scope"><a href="#Variable-Scope" class="headerlink" title="Variable Scope"></a>Variable Scope</h2><p>The variable in the shell programming is not required to declare explicitly, which<br>means using any variable in any place is allowed. It is easy to access the value by $vairable<br>The variable scope is global by default. Only in the function, the local variable can be declared.</p>
+        <h2 id="Shell-Scripting-Disable-Control-C"><a href="#Shell-Scripting-Disable-Control-C" class="headerlink" title="Shell Scripting Disable Control+C"></a>Shell Scripting Disable Control+C</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># kill -l to list all the signals</span></span><br><span class="line"><span class="comment"># Signal 2 is Ctrl+C</span></span><br><span class="line"><span class="comment"># Okay disable it:</span></span><br><span class="line"><span class="built_in">trap</span> <span class="string">''</span> 2  </span><br><span class="line">command1</span><br><span class="line">command2</span><br><span class="line">command3</span><br><span class="line"><span class="comment"># Enable Ctrl+C</span></span><br><span class="line"><span class="built_in">trap</span> 2</span><br></pre></td></tr></table></figure>
+<h2 id="Variable-Scope"><a href="#Variable-Scope" class="headerlink" title="Variable Scope"></a>Variable Scope</h2><p>The variable in the shell programming is not required to declare explicitly, which<br>means using any variable in any place is allowed. It is easy to access the value by $vairable<br>The variable scope is global by default. Only in the function, the local variable can be declared.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">variableA=<span class="string">"Hello World"</span></span><br><span class="line">variableB=<span class="string">"Fertiland"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="built_in">test</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">local</span> variableA=<span class="string">"Bye Bye"</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"<span class="variable">$variableA</span>, <span class="variable">$variableB</span>"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$variableA</span>, <span class="variable">$variableB</span>"</span></span><br><span class="line"><span class="built_in">test</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$variableA</span>, <span class="variable">$variableB</span>"</span></span><br></pre></td></tr></table></figure>
 <h2 id="Variable-Reference"><a href="#Variable-Reference" class="headerlink" title="Variable Reference"></a>Variable Reference</h2><h2 id="Map-and-Array"><a href="#Map-and-Array" class="headerlink" title="Map and Array"></a>Map and Array</h2><h3 id="Get-Keys"><a href="#Get-Keys" class="headerlink" title="Get Keys"></a>Get Keys</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">declare</span> -A map=([<span class="string">"1"</span>]=<span class="string">"a"</span> [<span class="string">"2"</span>]=<span class="string">"b"</span> [<span class="string">"3"</span>]=<span class="string">"c"</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;!map[@]&#125;</span></span><br></pre></td></tr></table></figure>
 <h3 id="Get-Values"><a href="#Get-Values" class="headerlink" title="Get Values"></a>Get Values</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">declare</span> -A map=([<span class="string">"1"</span>]=<span class="string">"a"</span> [<span class="string">"2"</span>]=<span class="string">"b"</span> [<span class="string">"3"</span>]=<span class="string">"c"</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;map[@]&#125;</span></span><br></pre></td></tr></table></figure>
@@ -136,7 +137,7 @@ run:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fertiland.github.io/2018/01/18/shell-programming/" data-id="cjcpp732200030rp5fazevs2e" class="article-share-link">Teilen</a>
+      <a data-url="http://fertiland.github.io/2018/01/18/shell-programming/" data-id="cjcpwr9au00038ip50w81gh6f" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -163,7 +164,7 @@ run:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fertiland.github.io/2018/01/06/programmer-draw-1/" data-id="cjcpp731z00020rp52rslcsbr" class="article-share-link">Teilen</a>
+      <a data-url="http://fertiland.github.io/2018/01/06/programmer-draw-1/" data-id="cjcpwr9ar00028ip58vfw24dn" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -203,7 +204,7 @@ run:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fertiland.github.io/2018/01/04/systemd-service/" data-id="cjcpp732400040rp5y06klees" class="article-share-link">Teilen</a>
+      <a data-url="http://fertiland.github.io/2018/01/04/systemd-service/" data-id="cjcpwr9ax00048ip5bct3ys10" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -248,7 +249,7 @@ run:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fertiland.github.io/2017/12/27/hello-world/" data-id="cjcpp731v00010rp5012c6zq7" class="article-share-link">Teilen</a>
+      <a data-url="http://fertiland.github.io/2017/12/27/hello-world/" data-id="cjcpwr9am00018ip5uu7gra0s" class="article-share-link">Teilen</a>
       
       
     </footer>
