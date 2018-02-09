@@ -457,6 +457,28 @@ run:
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">programming</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -486,9 +508,15 @@ run:
       
         
           
-            <h2 id="Shell-Scripting-Disable-Control-C"><a href="#Shell-Scripting-Disable-Control-C" class="headerlink" title="Shell Scripting Disable Control+C"></a>Shell Scripting Disable Control+C</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># kill -l to list all the signals</span></span><br><span class="line"><span class="comment"># Signal 2 is Ctrl+C</span></span><br><span class="line"><span class="comment"># Okay disable it:</span></span><br><span class="line"><span class="built_in">trap</span> <span class="string">''</span> 2  </span><br><span class="line">command1</span><br><span class="line">command2</span><br><span class="line">command3</span><br><span class="line"><span class="comment"># Enable Ctrl+C</span></span><br><span class="line"><span class="built_in">trap</span> 2</span><br></pre></td></tr></table></figure>
+            <h2 id="Shell-Function"><a href="#Shell-Function" class="headerlink" title="Shell Function"></a>Shell Function</h2><p><a href="http://www.tldp.org/LDP/abs/html/index.html" target="_blank" rel="noopener">Advanced Bash-Scripting Guide</a></p>
+<h3 id="Modulization"><a href="#Modulization" class="headerlink" title="Modulization"></a>Modulization</h3><p>use function as the first language to describe the call flows.<br>main function show all the function flows.<br>common functions will be put into specific module, then use source command to include the function definition.<br>Below snippet is only included in the head of sourced script.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># avoid double inclusion</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">test</span> <span class="string">"<span class="variable">$&#123;BashInclude+defined&#125;</span>"</span> == <span class="string">"defined"</span></span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    <span class="built_in">return</span> 0</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">BashInclude=1</span><br></pre></td></tr></table></figure></p>
+<h3 id="Function-Call"><a href="#Function-Call" class="headerlink" title="Function Call"></a>Function Call</h3><p>Define the function before call it.</p>
+<h3 id="Function-Return-Value"><a href="#Function-Return-Value" class="headerlink" title="Function Return Value"></a>Function Return Value</h3><p>Function can only return numeric values. The important point is that a program should always return zero<br>if completes successfully, non-zero if something went wrong.<br>return can only ‘return’ from a function or sourced script.</p>
+<h2 id="Functions-that-execute-in-a-separate-process"><a href="#Functions-that-execute-in-a-separate-process" class="headerlink" title="Functions that execute in a separate process"></a>Functions that execute in a separate process</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hw()(<span class="built_in">echo</span> <span class="string">"Hello, World!"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Shell-Scripting-Disable-Control-C"><a href="#Shell-Scripting-Disable-Control-C" class="headerlink" title="Shell Scripting Disable Control+C"></a>Shell Scripting Disable Control+C</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># kill -l to list all the signals</span></span><br><span class="line"><span class="comment"># Signal 2 is Ctrl+C</span></span><br><span class="line"><span class="comment"># Okay disable it:</span></span><br><span class="line"><span class="built_in">trap</span> <span class="string">''</span> 2  </span><br><span class="line">command1</span><br><span class="line">command2</span><br><span class="line">command3</span><br><span class="line"><span class="comment"># Enable Ctrl+C</span></span><br><span class="line"><span class="built_in">trap</span> 2</span><br></pre></td></tr></table></figure>
 <h2 id="Variable-Scope"><a href="#Variable-Scope" class="headerlink" title="Variable Scope"></a>Variable Scope</h2><p>The variable in the shell programming is not required to declare explicitly, which<br>means using any variable in any place is allowed. It is easy to access the value by $vairable<br>The variable scope is global by default. Only in the function, the local variable can be declared.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">variableA=<span class="string">"Hello World"</span></span><br><span class="line">variableB=<span class="string">"Fertiland"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="built_in">test</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">local</span> variableA=<span class="string">"Bye Bye"</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"<span class="variable">$variableA</span>, <span class="variable">$variableB</span>"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$variableA</span>, <span class="variable">$variableB</span>"</span></span><br><span class="line"><span class="built_in">test</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$variableA</span>, <span class="variable">$variableB</span>"</span></span><br></pre></td></tr></table></figure>
+<h3 id="readonly-variable"><a href="#readonly-variable" class="headerlink" title="readonly variable"></a>readonly variable</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">readonly</span> hello=<span class="string">"hello"</span></span><br><span class="line">hello=<span class="string">"world"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$hello</span></span><br></pre></td></tr></table></figure>
 <h2 id="Variable-Reference"><a href="#Variable-Reference" class="headerlink" title="Variable Reference"></a>Variable Reference</h2><h2 id="Map-and-Array"><a href="#Map-and-Array" class="headerlink" title="Map and Array"></a>Map and Array</h2><h3 id="Get-Keys"><a href="#Get-Keys" class="headerlink" title="Get Keys"></a>Get Keys</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">declare</span> -A map=([<span class="string">"1"</span>]=<span class="string">"a"</span> [<span class="string">"2"</span>]=<span class="string">"b"</span> [<span class="string">"3"</span>]=<span class="string">"c"</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;!map[@]&#125;</span></span><br></pre></td></tr></table></figure>
 <h3 id="Get-Values"><a href="#Get-Values" class="headerlink" title="Get Values"></a>Get Values</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">declare</span> -A map=([<span class="string">"1"</span>]=<span class="string">"a"</span> [<span class="string">"2"</span>]=<span class="string">"b"</span> [<span class="string">"3"</span>]=<span class="string">"c"</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;map[@]&#125;</span></span><br></pre></td></tr></table></figure>
 <h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>update or rollback wrapper scripts</p>
@@ -834,7 +862,25 @@ run:
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
